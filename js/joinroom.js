@@ -35,24 +35,27 @@ $(document).ready(function(){
 					return conversation.join();
 				}).then(function(conversation){
 					function getavatarurl(name){
-						var avatar='https://avatars.githubusercontent.com/u/10137?v=4';
-						fetch(`https://api.github.com/users/${name}`).then(function(res){
-							if(res.json().login!=name)
-								throw JSON.stringify(res.json());
-							avatar=res.json().avatar_url;
-						}).catch(console.error);
-						return avatar;
+						try{
+							$.get(`https://api.github.com/users/${name}`,function(ac){
+								$("#imagegoeshere").attr("src",ac.avatar_url);
+								$("#imagegoeshere").attr("id","")
+							});
+						}catch(e){
+							console.error(e);
+							$("#imagegoeshere").attr("src",'https://avatars.githubusercontent.com/u/10137?v=4');
+							$("#imagegoeshere").attr("id","")
+						}
 					}
 					function addmsg(name,txt){
-						var url=getavatarurl(name);
 						$("#msgs").append(`<div class='item'>
-							<img class='ui avatar image' src='${url}'>
-							<div class='content'>
+							<img class='ui avatar image' id='imagegoeshere'>
+							<div class='content' style="height:60px;width:95%">
 							<div class='header'>${name}</div>
 							<div id="msggoeshere"></div>
 							</div></div>`);
 						$("#msggoeshere").text(txt);
 						$("#msggoeshere").attr("id","");
+						getavatarurl(name);
 					}
 					function addsys(txt){
 						var url="https://avatars.githubusercontent.com/u/66681986";
