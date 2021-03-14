@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="//cdn.jsdelivr.net/npm/leancloud-realtime@5.0.0-rc.5/dist/im-browser.min.js"></script>
+	<script src="//cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<link href="../css/semantic.min.css" rel="stylesheet" type="text/css">
+	<script src="../js/semantic.min.js"></script>
+	<script src="../js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
+	<script src="../js/createroom.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/midhide.css">
+	<title>OI-MasterChat</title>
+</head>
+<body>
+	<div class="mid" id="enterroom">
+		<div class="ui input">
+			<input type="text" id="roomname" placeholder="输入房间名称" />
+		</div>
+		<button class="ui primary button" id="setroom">确定</button>
+	</div>
+	<div class="ui success message mid" id="success">
+		<div class="header">
+			成功获取聊天ID！请复制到<a href="../joinroom">这里</a>。
+		</div>
+		<p id="idgoeshere"></p>
+	</div>
+</body>
+</html>

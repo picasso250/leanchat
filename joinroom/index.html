@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="//cdn.jsdelivr.net/npm/leancloud-realtime@5.0.0-rc.5/dist/im-browser.min.js"></script>
+	<script src="//cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<link href="../css/semantic.min.css" rel="stylesheet" type="text/css">
+	<script src="../js/semantic.min.js"></script>
+	<script src="../js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
+	<script src="../js/joinroom.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/midhide.css">
+	<link rel="stylesheet" type="text/css" href="../css/bottom.css">
+	<title>OI-MasterChat</title>
+</head>
+<body>
+	<div class="mid" id="enterroom">
+		<div class="ui input">
+			<input type="text" id="roomname" placeholder="输入您想加入的房间号" />
+		</div>
+		<button class="ui primary button" id="setroom">确定</button>
+	</div>
+	<div class="content hide ui list" id="msgs"></div>
+	<div class="ui input action atbot" style="display:none;width:100%" id="msg">
+		<input style="width:90%" type="text" id="msgholder" placeholder="在这里输入您的消息" />
+		<button class="ui button" id="send">发送</button>
+	</div>
+</body>
+</html>
