@@ -18,6 +18,9 @@ $(document).ready(function(){
 		salert("错误","TheGreatestMan 为特殊权限账号",3000,"error");
 		window.history.back();
 	}
+	if(name==undefined){
+		window.history.back();
+	}
 	var room;
 	$("#enterroom").fadeIn(1000);
 	$("#setroom").click(function(){
@@ -45,7 +48,9 @@ $(document).ready(function(){
 					conversation.quit();
 					$("#success").fadeIn(1000);
 				});
-			}).catch(console.error);
+			}).catch(function(err){
+				salert("错误",`无法登录，详细信息：${err}`,10000,"error");
+			});
 		});
 	});
 });

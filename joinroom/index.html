@@ -9,6 +9,7 @@
 	<script src="../js/sweetalert2.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
 	<script src="../js/joinroom.js"></script>
+	<script src="../js/nof12.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/midhide.css">
 	<link rel="stylesheet" type="text/css" href="../css/bottom.css">
 	<title>OI-MasterChat</title>
@@ -23,7 +24,10 @@
 	<div class="contentxx hide ui list" id="msgs"></div>
 	<div class="ui input action atbot" style="display:none;width:100%" id="msg">
 		<input style="width:90%" type="text" id="msgholder" placeholder="在这里输入您的消息" />
-		<button class="ui button" id="send">发送</button>
+		<div style="float:right;">
+			<button class="ui button" id="send">发送</button>
+			<button class="ui button" id="exit">退出</button>
+		</div>
 	</div>
 </body>
 </html>
