@@ -15,11 +15,15 @@ $(document).ready(function(){
 	var name=window.localStorage.getItem("name");
 	if(name=="TheGreatestMan"){
 		name=undefined;
+		window.localStorage.removeItem("name");
 		salert("错误","TheGreatestMan 为特殊权限账号",3000,"error");
-		window.history.back();
+		window.location="../";
+	}
+	if(window.localStorage.getItem("roomid")!=undefined){
+		window.location="../joinroom";
 	}
 	if(name==undefined){
-		window.history.back();
+		window.location="../";
 	}
 	var room;
 	$("#enterroom").fadeIn(1000);

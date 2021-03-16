@@ -15,11 +15,12 @@ $(document).ready(function(){
 	var name=window.localStorage.getItem("name");
 	if(name=="TheGreatestMan"){
 		name=undefined;
+		window.localStorage.removeItem("name");
 		salert("错误","TheGreatestMan 为特殊权限账号",3000,"error");
-		window.history.back();
+		window.location="../";
 	}
 	if(name==undefined){
-		window.history.back();
+		window.location="../";
 	}
 	var room;
 	function thenwedo(){
@@ -32,20 +33,24 @@ $(document).ready(function(){
 		});
 		realtime.createIMClient(name).then(function(me){
 			me.getConversation(room).then(function(conversation){
-				return conversation.join();
+				if(room==undefined)
+					return conversation.join();
+				return conversation;
 			}).then(function(conversation){
 				window.localStorage.setItem("roomid",room);
 				function getavatarurl(name){
-					try{
-						$.get(`https://api.github.com/users/${name}`,function(ac){
+					$.ajax({
+						url: `https://api.github.com/users/${name}`,
+						success: function(ac){
 							$("#imagegoeshere").attr("src",ac.avatar_url);
 							$("#imagegoeshere").attr("id","")
-						});
-					}catch(e){
-						console.warn(e);
-						$("#imagegoeshere").attr("src",'https://avatars.githubusercontent.com/u/10137?v=4');
-						$("#imagegoeshere").attr("id","")
-					}
+						},
+						error: function(x,e){
+							console.warn(e);
+							$("#imagegoeshere").attr("src",'https://avatars.githubusercontent.com/u/10137?v=4');
+							$("#imagegoeshere").attr("id","")
+						}
+					});
 				}
 				function addmsg(name,txt){
 					$("#msgs").append(`<div class='item'>
@@ -89,8 +94,8 @@ $(document).ready(function(){
 				});
 				$("#exit").click(function(){
 					conversation.quit();
-					salert("成功","已退出",2000,"success");
 					window.localStorage.removeItem("roomid");
+					salert("成功","已退出",2000,"success");
 					setTimeout(function(){
 						window.location=window.location;
 					},2000);

@@ -12,6 +12,9 @@ $(document).ready(function(){
 		salert("错误","浏览器不支持LocalStorage",10000,"error");
 		window.history.back();
 	}
+	if(window.localStorage.getItem("roomid")!=undefined){
+		window.location="joinroom";
+	}
 	var name;
 	$("#entername").fadeIn(1000);
 	$("#setname").click(function(){
