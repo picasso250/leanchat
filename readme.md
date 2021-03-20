@@ -23,3 +23,12 @@ OI-Master 写的新项目 Leanchat qwq!
 # 有建议？
 
 欢迎 [提出issue](https://gitee.com/OI-Master/leanchat/issues/new) 或 [pr](https://gitee.com/OI-Master/leanchat/pull/new)！
+
+# todo
+
+1. 完善退出机制
+2. 增加掉线处理机制
+3. 向下兼容
+4. ~~禁止 F12~~已完成
+5. 完善 `TheGreatestMan`，自动退出
+6. min.js 和 min.css 生成，压缩 HTML

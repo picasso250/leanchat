@@ -33,9 +33,7 @@ $(document).ready(function(){
 		});
 		realtime.createIMClient(name).then(function(me){
 			me.getConversation(room).then(function(conversation){
-				if(room==undefined)
-					return conversation.join();
-				return conversation;
+				return conversation.join();
 			}).then(function(conversation){
 				window.localStorage.setItem("roomid",room);
 				function getavatarurl(name){
@@ -56,11 +54,13 @@ $(document).ready(function(){
 					$("#msgs").append(`<div class='item'>
 						<img class='ui avatar image' id='imagegoeshere'>
 						<div class='content' style="height:60px;width:95%">
-						<div class='header'>${name}</div>
+						<div class='header' id="namegoeshere"></div>
 						<div id="msggoeshere"></div>
 						</div></div>`);
 					$("#msggoeshere").text(txt);
 					$("#msggoeshere").attr("id","");
+					$("#namegoeshere").text(name);
+					$("#namegoeshere").attr("id","");
 					getavatarurl(name);
 				}
 				function addsys(txt){
