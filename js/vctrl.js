@@ -15,9 +15,9 @@ $(document).ready(function(){
 			if(res.version==lsv)
 				return;
 			else{
-				window.localStorage.clear();
+				window.localStorage.removeItem("roomid");
 				window.localStorage.setItem("version",res.version);
-				salert("更新成功","已成功更新！需要重新配置！",1000,"success");
+				salert("更新成功","已成功更新",1000,"success");
 				setInterval(function(){
 					window.location="../";
 				},1000)
