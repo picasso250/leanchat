@@ -83,7 +83,7 @@ $(document).ready(function () {
 					addmsg(message.from, message.text);
 				});
 				conversation.queryMessages({
-					limit: 100, // limit 取值范围 1~100，默认 20
+					limit: 50, // limit 取值范围 1~100，默认 20
 				}).then(function (messages) {
 					console.log(messages)
 					// 最新的十条消息，按时间增序排列
