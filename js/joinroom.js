@@ -26,10 +26,10 @@ $(document).ready(function () {
 	function thenwedo() {
 		$("#enterroom").remove();
 		const { Realtime, Event, TextMessage } = AV;
-		const realtime = new Realtime({
-			appId: "b39Oe3mhAGl6WwMndUNc8FT8-gzGzoHsz",
-			appKey: "RF7TuvH9B1756XJ8Xw0w6hOE",
-			server: "https://b39oe3mh.lc-cn-n1-shared.com"
+		const realtime = new Realtime({	
+			appId:"Ta3vIHMgQoo6FiqsNJKHvJEU-gzGzoHsz",
+				appKey:"WWo8Bi5PPL5baVfwfN3vvYsw",
+				server:"https://ta3vihmg.lc-cn-n1-shared.com"
 		});
 		realtime.createIMClient(name).then(function (me) {
 			me.getConversation(room).then(function (conversation) {
@@ -83,7 +83,7 @@ $(document).ready(function () {
 					addmsg(message.from, message.text);
 				});
 				conversation.queryMessages({
-					limit: 10, // limit 取值范围 1~100，默认 20
+					limit: 100, // limit 取值范围 1~100，默认 20
 				}).then(function (messages) {
 					console.log(messages)
 					// 最新的十条消息，按时间增序排列

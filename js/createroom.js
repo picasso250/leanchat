@@ -38,9 +38,9 @@ $(document).ready(function(){
 			$("#enterroom").remove();
 			const {Realtime}=AV;
 			const realtime=new Realtime({
-				appId:"b39Oe3mhAGl6WwMndUNc8FT8-gzGzoHsz",
-				appKey:"RF7TuvH9B1756XJ8Xw0w6hOE",
-				server:"https://b39oe3mh.lc-cn-n1-shared.com"
+				appId:"Ta3vIHMgQoo6FiqsNJKHvJEU-gzGzoHsz",
+				appKey:"WWo8Bi5PPL5baVfwfN3vvYsw",
+				server:"https://ta3vihmg.lc-cn-n1-shared.com"
 			});
 			realtime.createIMClient(name).then(function(me){
 				me.createConversation({
